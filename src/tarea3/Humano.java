@@ -2,19 +2,19 @@ package tarea3;
 
 public abstract class Humano {
 
-    Humano(String nombre, String apellido) {
+    public Humano(String nombre, String apellido) {
         nombre_ = nombre;
         apellido_ = apellido;
     }
 
-    Humano(String nombre, String apellido, int edad) {
+    public Humano(String nombre, String apellido, int edad) {
         this(nombre, apellido);
         edad_ = edad;
     }
 
-    Humano(String nombre, String apellido, int edad, char sexo) {
-        this(nombre, apellido, edad);
-        sexo_ = sexo;
+    public Humano(String nombre, String apellido, char sexo) {
+        this(nombre, apellido);
+        sexo(sexo);
     }
 
     public void nombre(String nombre) {
@@ -43,7 +43,8 @@ public abstract class Humano {
 
     public void sexo(char sexo) {
         if (Character.toLowerCase(sexo) != 'f' || Character.toLowerCase(sexo) != 'm')
-            throw new IllegalArgumentException("Sexo no valido.");
+            System.out.println(sexo);
+
         sexo_ = sexo;
     }
 
@@ -54,6 +55,12 @@ public abstract class Humano {
     public abstract void moverse();
 
     public abstract void profesion();
+
+    public abstract void soy();
+
+    public abstract void estudiar();
+
+    public abstract void verTV();
 
     private String nombre_;
     private String apellido_;
