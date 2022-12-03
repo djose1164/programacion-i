@@ -1,6 +1,8 @@
-package tarea3;
+package tarea3.humanos;
 
-public abstract class Humano {
+import tarea3.actividades.Entretenimiento;
+
+public abstract class Humano implements Entretenimiento {
 
     public Humano(String nombre, String apellido) {
         nombre_ = nombre;
@@ -42,9 +44,6 @@ public abstract class Humano {
     }
 
     public void sexo(char sexo) {
-        if (Character.toLowerCase(sexo) != 'f' || Character.toLowerCase(sexo) != 'm')
-            System.out.println(sexo);
-
         sexo_ = sexo;
     }
 
@@ -54,13 +53,13 @@ public abstract class Humano {
 
     public abstract void moverse();
 
-    public abstract void profesion();
-
     public abstract void soy();
 
-    public abstract void estudiar();
+    public String nombreCompleto() {
+        return nombre_ + " " + apellido_;
+    }
 
-    public abstract void verTV();
+    abstract public void actividadesDiarias();
 
     private String nombre_;
     private String apellido_;
